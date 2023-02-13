@@ -1,0 +1,24 @@
+<div class="responsive-paddings">
+    <div class="content-block">
+        <h2>Mobile Phones Table</h2>
+    </div>
+
+    <div>
+        <!-- Tabla -->
+        <dx-data-grid id="gridContainer" [dataSource]="arrayPhones">
+
+            <!-- Paginación -->
+            <!-- <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager> -->
+
+            <!-- Columnas-->
+            <dxi-column dataField="id" caption="Mobile phone ID"></dxi-column>
+
+            <dxi-column dataField="title"  caption="Name"></dxi-column>
+
+            <dxi-column dataField="description" caption="Description"></dxi-column>
+
+        </dx-data-grid>
+
+    </div>
+
+</div>
