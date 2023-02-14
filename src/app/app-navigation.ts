@@ -17,8 +17,8 @@ export const navigation = [
         path: '/tasks'
       },
       {
-        text: 'Mobile Phones',
-        path: '/mobile-phones'
+        text: 'Countries',
+        path: '/countries'
       }
     ]
   }

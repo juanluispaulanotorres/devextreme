@@ -6,7 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
-import { MobileComponent } from './pages/mobile/mobile.component';
+import { CountryComponent } from './pages/country/country.component';
 import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
@@ -21,8 +21,8 @@ const routes: Routes = [
     canActivate: [ AuthGuardService ]
   },
   {
-    path: 'mobile-phones',
-    component: MobileComponent,
+    path: 'countries',
+    component: CountryComponent,
     canActivate: [ AuthGuardService ]
   },
   {
@@ -64,7 +64,7 @@ const routes: Routes = [
     HomeComponent,
     ProfileComponent,
     TasksComponent,
-    MobileComponent
+    CountryComponent
   ]
 })
 export class AppRoutingModule { }

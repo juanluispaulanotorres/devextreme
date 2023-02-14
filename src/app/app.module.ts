@@ -7,7 +7,6 @@ import { FooterModule, ResetPasswordFormModule, CreateAccountFormModule, ChangeP
 import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { UnauthenticatedContentModule } from './unauthenticated-content';
 import { AppRoutingModule } from './app-routing.module';
-import { MobileComponent } from './pages/mobile/mobile.component';
 
 @NgModule({
   declarations: [

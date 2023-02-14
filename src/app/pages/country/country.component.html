@@ -1,0 +1,29 @@
+<div class="responsive-paddings">
+    <div class="content-block">
+        <h2>Countries Table</h2>
+    </div>
+
+    <div>
+        <!-- Tabla -->
+        <dx-data-grid id="gridContainer" [dataSource]="arrayCountries">
+
+            <!-- Paginación -->
+            <!-- <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager> -->
+
+            <!-- Columnas-->
+            <dxi-column dataField="name.common" caption="Country name" width="15%"></dxi-column>
+
+            <dxi-column dataField="region" caption="Region"></dxi-column>
+
+            <dxi-column dataField="language" caption="Language"></dxi-column>
+
+            <dxi-column dataField="population" caption="Population"></dxi-column>
+            <!-- <dxo-export [enabled]="true" [formats]="['pdf']"></dxo-export> -->
+
+            <dxi-column dataField="flag" caption="Flag" cellTemplate="flag"></dxi-column>
+
+        </dx-data-grid>
+
+    </div>
+
+</div>
