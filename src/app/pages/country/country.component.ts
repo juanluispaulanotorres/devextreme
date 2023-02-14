@@ -14,24 +14,26 @@ export class CountryComponent {
   store: ODataStore;
   dataSource: DataSource;
 
-  constructor() {
+  arrayFlags: string[] = [];
 
+  constructor() {
     this.store = new ODataStore({
-      url: 'https://restcountries.com/v3.1/all'
+      url: 'https://restcountries.com/v3.1/all',
     });
 
     this.dataSource = new DataSource({
-      store: this.store
+      store: this.store,
     });
 
     this.store.load().then((data: any) => {
       this.arrayCountries = data;
 
-      this.arrayCountries.map(country => {
+      this.arrayCountries.map((country) => {
+        // Obtención del idioma del país
         Object.values(country.languages).forEach((language) => {
-          country.language = language
-        })
-      })
-    })
+          country.language = language;
+        });
+      });
+    });
   }
 }
