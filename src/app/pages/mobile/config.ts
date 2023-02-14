@@ -1,5 +1,6 @@
 export interface IPhone {
     id: number,
     title: string,
-    description: string
+    description: string,
+    images?: string
 }
