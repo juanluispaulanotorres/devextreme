@@ -5,7 +5,8 @@
 
     <div>
         <!-- Tabla -->
-        <dx-data-grid id="gridContainer" [dataSource]="arrayCountries" [columnAutoWidth]="true">
+        <dx-data-grid id="gridContainer" [dataSource]="arrayCountries" (onCellClick)="openPopup($event)"
+            [columnAutoWidth]="true">
 
             <!-- Paginación -->
             <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
@@ -18,7 +19,6 @@
             <dxi-column dataField="language" caption="Language"></dxi-column>
 
             <dxi-column dataField="population" caption="Population" alignment="left"></dxi-column>
-            <!-- <dxo-export [enabled]="true" [formats]="['pdf']"></dxo-export> -->
 
             <dxi-column dataField="flags.png" caption="Flag" cellTemplate="cellTemplate"></dxi-column>
             <div *dxTemplate="let data of 'cellTemplate'">
@@ -32,6 +32,15 @@
     </div>
 
 </div>
+
+<dx-popup [(visible)]="visible" title="Flags" id="popup" contentTemplate="content" [resizeEnabled]="false" [hideOnOutsideClick]="true">
+
+    <div *dxTemplate="let data of 'content'">
+        <dx-gallery [items]="arrayFlags" [height]="300">
+        </dx-gallery>
+    </div>
+
+</dx-popup>
 
 <ng-template #noImage>
     <label>No Image</label>

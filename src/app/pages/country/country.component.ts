@@ -1,20 +1,30 @@
 import { Component } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
 import ODataStore from 'devextreme/data/odata/store';
-import { ICountry } from './config';
 
+interface IObjCarousel {
+  imageSrc: string,
+  text: string
+}
 
 @Component({
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.scss'],
 })
 export class CountryComponent {
-  arrayCountries: ICountry[] = [];
+  arrayCountries: any[] = [];
 
   store: ODataStore;
   dataSource: DataSource;
 
-  arrayFlags: string[] = [];
+  carrouselFlags: IObjCarousel = {
+    imageSrc: '',
+    text: ''
+  }
+
+  arrayFlags: IObjCarousel[] = [];
+
+  visible: boolean = false;
 
   constructor() {
     this.store = new ODataStore({
@@ -33,7 +43,31 @@ export class CountryComponent {
         Object.values(country.languages).forEach((language) => {
           country.language = language;
         });
+
+        // Info para el carrousel de imágenes
+        this.carrouselFlags.text = country.name.common;
+        this.carrouselFlags.imageSrc = country.flags?.png;
+
+        this.arrayFlags.push({
+          text: this.carrouselFlags.text,
+          imageSrc: this.carrouselFlags.imageSrc,
+        });
       });
     });
   }
+
+  openPopup(event: any) {
+
+    // Si se hace click sobre una de las banderas
+    if (event.columnIndex === 4) {
+      // Abrir popup con las imágenes
+      this.visible = !this.visible
+
+
+    } else {
+      // Popup de formulario de edición (pendiente de implementación)
+
+    }
+  }
+
 }
