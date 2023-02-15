@@ -23,6 +23,7 @@ export class CountryComponent {
   }
 
   arrayFlags: IObjCarousel[] = [];
+  rowIndex: number = 0;
 
   visible: boolean = false;
 
@@ -59,10 +60,9 @@ export class CountryComponent {
   openPopup(event: any) {
 
     // Si se hace click sobre una de las banderas
-    if (event.columnIndex === 4) {
-      // Abrir popup con las imágenes
-      this.visible = !this.visible
-
+    if (event.rowType !== 'header' && event.columnIndex === 4) {
+      this.visible = !this.visible      // Popup visible
+      this.rowIndex = event.rowIndex;   // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
 
     } else {
       // Popup de formulario de edición (pendiente de implementación)

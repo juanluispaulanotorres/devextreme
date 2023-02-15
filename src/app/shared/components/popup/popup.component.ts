@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import Popup from 'devextreme/ui/popup';
 
 @Component({
   selector: 'app-popup',

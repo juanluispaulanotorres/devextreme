@@ -1,0 +1,24 @@
+
+.flagImg {
+    border: 1px solid silver;
+    box-shadow: 5px 10px 10px 0 rgba(0, 0, 0, 0.815);
+    &:hover {
+        border: 5px solid silver;
+        box-shadow: none;
+    }
+}
+
+.popupContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--flagData {
+        display: inline-grid;
+        justify-content: center;
+
+        &--flagPopupImg {
+            box-shadow: 5px 10px 10px 0 rgba(0, 0, 0, 0.815);
+        }
+    }
+}

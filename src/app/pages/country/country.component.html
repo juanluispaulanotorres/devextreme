@@ -5,8 +5,7 @@
 
     <div>
         <!-- Tabla -->
-        <dx-data-grid id="gridContainer" [dataSource]="arrayCountries" (onCellClick)="openPopup($event)"
-            [columnAutoWidth]="true">
+        <dx-data-grid id="gridContainer" [dataSource]="arrayCountries" (onCellClick)="openPopup($event)">
 
             <!-- Paginación -->
             <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
@@ -23,7 +22,7 @@
             <dxi-column dataField="flags.png" caption="Flag" cellTemplate="cellTemplate"></dxi-column>
             <div *dxTemplate="let data of 'cellTemplate'">
                 <div *ngIf="data.text !== ''; else noImage">
-                    <img [src]="data.text" width="100" height="60">
+                    <img [src]="data.text" width="100" height="60" class="flagImg">
                 </div>
             </div>
 
@@ -33,10 +32,15 @@
 
 </div>
 
-<dx-popup [(visible)]="visible" title="Flags" id="popup" contentTemplate="content" [resizeEnabled]="false" [hideOnOutsideClick]="true">
+<dx-popup [(visible)]="visible" title="Flags" contentTemplate="content" [resizeEnabled]="false"
+    [hideOnOutsideClick]="true">
 
-    <div *dxTemplate="let data of 'content'">
-        <dx-gallery [items]="arrayFlags" [height]="300">
+    <div class="popupContent" *dxTemplate="let data of 'content'">
+        <dx-gallery [items]="arrayFlags" [selectedItem]="arrayFlags[rowIndex]" [showNavButtons]="true" [showIndicator]="false" [height]="400" itemTemplate="flagData">
+            <div class="popupContent--flagData" *dxTemplate="let info of 'flagData'">
+                <span>{{ info.text }}</span>
+                <img [src]="info.imageSrc" class="popupContent--flagData--flagPopupImg" height="300" width="450"/>
+            </div>
         </dx-gallery>
     </div>
 
