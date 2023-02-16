@@ -32,9 +32,9 @@
 
 </div>
 
-<app-popup [visible]="visible" title="Flags" contentTemplate="content" [resizable]="false" [arrayImages]="arrayFlags"
+<app-popup-gallery [visible]="visible" title="Flags" contentTemplate="content" [resizable]="false" [arrayImages]="arrayFlags"
     [showCloseButton]="true" [rowIndex]="rowIndex" (emitVisible)="getPropVisible($event)">
-</app-popup>
+</app-popup-gallery>
 
 <ng-template #noImage>
     <label>No Image</label>

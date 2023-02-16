@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-popup',
-  templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.scss'],
+  selector: 'app-popup-gallery',
+  templateUrl: './popup-gallery.component.html',
+  styleUrls: ['./popup-gallery.component.scss'],
 })
-export class PopupComponent {
+export class PopupGalleryComponent {
   
   @Input() visible!: boolean;
   @Input() title!: string;
