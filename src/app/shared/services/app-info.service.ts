@@ -5,7 +5,7 @@ export class AppInfoService {
   constructor() {}
 
   public get title() {
-    return 'App Devextreme Proyect';
+    return 'Proyecto DevExtreme';
   }
 
   public get currentYear() {

@@ -10,15 +10,44 @@ export const navigation = [
     items: [
       {
         text: 'Profile',
+        icon: 'user',
         path: '/profile'
       },
       {
         text: 'Tasks',
+        icon: 'verticalaligntop',
         path: '/tasks'
       },
       {
         text: 'Countries',
+        icon: 'globe',
         path: '/countries'
+      }
+    ]
+  },
+  {
+    text: 'Maintenance',
+    icon: 'folder',
+    items: [
+      {
+        text: 'Create',
+        icon: 'plus',
+        path: '/create'
+      },
+      {
+        text: 'Consult',
+        icon: 'find',
+        path: '/consult'
+      },
+      {
+        text: 'Update',
+        icon: 'refresh',
+        path: '/modify'
+      },
+      {
+        text: 'Elimination',
+        icon: 'remove',
+        path: '/elimination'
       }
     ]
   }
