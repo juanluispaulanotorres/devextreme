@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   templateUrl: 'profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   employee: any;
   colCountByScreen: object;
 
@@ -29,8 +29,5 @@ export class ProfileComponent implements OnInit {
       md: 3,
       lg: 4,
     };
-  }
-  ngOnInit(): void {
-    console.log("MOBILE PHONES")
   }
 }

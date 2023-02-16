@@ -8,6 +8,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule, DxPopupModule, DxGalleryModule } from 'devextreme-angular';
 import { CountryComponent } from './pages/country/country.component';
 import { CommonModule } from '@angular/common';
+import { ComponentModule } from "./shared/components/components.module";
 
 const routes: Routes = [
   {
@@ -57,14 +58,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule, DxPopupModule, DxGalleryModule, CommonModule],
-  providers: [AuthGuardService],
-  exports: [RouterModule],
-  declarations: [
-    HomeComponent,
-    ProfileComponent,
-    TasksComponent,
-    CountryComponent
-  ]
+    providers: [AuthGuardService],
+    exports: [RouterModule],
+    declarations: [
+        HomeComponent,
+        ProfileComponent,
+        TasksComponent,
+        CountryComponent
+    ],
+    imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule, DxPopupModule, DxGalleryModule, CommonModule, ComponentModule]
 })
 export class AppRoutingModule { }

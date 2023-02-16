@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-popup',
@@ -7,7 +7,21 @@ import { Component } from '@angular/core';
 })
 export class PopupComponent {
   
-  constructor() {
-    
+  @Input() visible!: boolean;
+  @Input() title!: string;
+  @Input() contentTemplate!: string;
+  @Input() resizable!: boolean;
+  @Input() closeOnOutsideClick!: boolean;
+  @Input() arrayImages: any[] = [];
+  @Input() showCloseButton!: boolean;
+  @Input() rowIndex!: number;
+
+  @Output() emitVisible = new EventEmitter<boolean>();
+
+  constructor() {}
+
+  sendPropVisible() {
+    this.emitVisible.emit(false);
   }
+
 }

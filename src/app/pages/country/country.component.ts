@@ -3,8 +3,8 @@ import DataSource from 'devextreme/data/data_source';
 import ODataStore from 'devextreme/data/odata/store';
 
 interface IObjCarousel {
-  imageSrc: string,
-  text: string
+  imageSrc: string;
+  text: string;
 }
 
 @Component({
@@ -19,8 +19,8 @@ export class CountryComponent {
 
   carrouselFlags: IObjCarousel = {
     imageSrc: '',
-    text: ''
-  }
+    text: '',
+  };
 
   arrayFlags: IObjCarousel[] = [];
   rowIndex: number = 0;
@@ -58,16 +58,16 @@ export class CountryComponent {
   }
 
   openPopup(event: any) {
-
     // Si se hace click sobre una de las banderas
-    if (event.rowType !== 'header' && event.columnIndex === 4) {
-      this.visible = !this.visible      // Popup visible
-      this.rowIndex = event.rowIndex;   // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
-
+    if (event.rowType == 'data' && event.columnIndex === 4) {
+      this.visible = !this.visible; // Popup visible
+      this.rowIndex = event.rowIndex; // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
     } else {
       // Popup de formulario de edición (pendiente de implementación)
-
     }
   }
 
+  getPropVisible(event: any) {
+    this.visible = event
+  }
 }

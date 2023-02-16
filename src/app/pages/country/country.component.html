@@ -32,19 +32,9 @@
 
 </div>
 
-<dx-popup [(visible)]="visible" title="Flags" contentTemplate="content" [resizeEnabled]="false"
-    [hideOnOutsideClick]="true">
-
-    <div class="popupContent" *dxTemplate="let data of 'content'">
-        <dx-gallery [items]="arrayFlags" [selectedItem]="arrayFlags[rowIndex]" [showNavButtons]="true" [showIndicator]="false" [height]="400" itemTemplate="flagData">
-            <div class="popupContent--flagData" *dxTemplate="let info of 'flagData'">
-                <span>{{ info.text }}</span>
-                <img [src]="info.imageSrc" class="popupContent--flagData--flagPopupImg" height="300" width="450"/>
-            </div>
-        </dx-gallery>
-    </div>
-
-</dx-popup>
+<app-popup [visible]="visible" title="Flags" contentTemplate="content" [resizable]="false" [arrayImages]="arrayFlags"
+    [showCloseButton]="true" [rowIndex]="rowIndex" (emitVisible)="getPropVisible($event)">
+</app-popup>
 
 <ng-template #noImage>
     <label>No Image</label>
