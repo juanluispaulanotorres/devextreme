@@ -30,9 +30,9 @@ export const navigation = [
     icon: 'folder',
     items: [
       {
-        text: 'Create',
+        text: 'Add',
         icon: 'plus',
-        path: '/create'
+        path: '/maintenance/add'
       },
       {
         text: 'Consult',

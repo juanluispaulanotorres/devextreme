@@ -5,7 +5,7 @@ import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
-import { DxDataGridModule, DxFormModule, DxPopupModule, DxGalleryModule } from 'devextreme-angular';
+import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { CountryComponent } from './pages/country/country.component';
 import { CommonModule } from '@angular/common';
 import { ComponentModule } from "./shared/components/components.module";
@@ -52,6 +52,10 @@ const routes: Routes = [
     canActivate: [ AuthGuardService ]
   },
   {
+    path: "maintenance",
+    loadChildren: () => import("./pages/maintenance/maintenance.module").then(h => h.MaintenanceModule),
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
@@ -66,6 +70,6 @@ const routes: Routes = [
         TasksComponent,
         CountryComponent
     ],
-    imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule, DxPopupModule, DxGalleryModule, CommonModule, ComponentModule]
+    imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule, CommonModule, ComponentModule]
 })
 export class AppRoutingModule { }
