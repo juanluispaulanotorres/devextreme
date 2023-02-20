@@ -6,7 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
-import { CountryComponent } from './pages/country/country.component';
+import { ListComponent } from './pages/country/list/list.component'
 import { CommonModule } from '@angular/common';
 import { ComponentModule } from "./shared/components/components.module";
 
@@ -19,11 +19,6 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [ AuthGuardService ]
-  },
-  {
-    path: 'countries',
-    component: CountryComponent,
     canActivate: [ AuthGuardService ]
   },
   {
@@ -52,8 +47,8 @@ const routes: Routes = [
     canActivate: [ AuthGuardService ]
   },
   {
-    path: "maintenance",
-    loadChildren: () => import("./pages/maintenance/maintenance.module").then(h => h.MaintenanceModule),
+    path: "country",
+    loadChildren: () => import("./pages/country/country.module").then(h => h.CountryModule),
   },
   {
     path: '**',
@@ -68,7 +63,7 @@ const routes: Routes = [
         HomeComponent,
         ProfileComponent,
         TasksComponent,
-        CountryComponent
+        ListComponent
     ],
     imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule, CommonModule, ComponentModule]
 })

@@ -8,10 +8,10 @@ interface IObjCarousel {
 }
 
 @Component({
-  templateUrl: './country.component.html',
-  styleUrls: ['./country.component.scss'],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
 })
-export class CountryComponent {
+export class ListComponent {
   arrayCountries: any[] = [];
 
   store: ODataStore;

@@ -17,37 +17,32 @@ export const navigation = [
         text: 'Tasks',
         icon: 'verticalaligntop',
         path: '/tasks'
-      },
-      {
-        text: 'Countries',
-        icon: 'globe',
-        path: '/countries'
       }
     ]
   },
   {
-    text: 'Maintenance',
+    text: 'Country',
     icon: 'folder',
     items: [
       {
-        text: 'Add',
+        text: 'Add country',
         icon: 'plus',
-        path: '/maintenance/add'
+        path: '/country/add'
+      },
+      {
+        text: 'List of countries',
+        icon: 'globe',
+        path: '/country/list'
       },
       {
         text: 'Consult',
         icon: 'find',
-        path: '/consult'
+        path: '/country/consult'
       },
       {
         text: 'Update',
         icon: 'refresh',
-        path: '/modify'
-      },
-      {
-        text: 'Elimination',
-        icon: 'remove',
-        path: '/elimination'
+        path: '/country/modify'
       }
     ]
   }

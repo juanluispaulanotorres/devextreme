@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from 'src/app/shared/services';
+import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 
 const routes: Routes = [
@@ -10,6 +11,11 @@ const routes: Routes = [
       {
         path: 'add',
         component: AddComponent,
+        canActivate: [ AuthGuardService ]
+      },
+      {
+        path: 'list',
+        component: ListComponent,
         canActivate: [ AuthGuardService ]
       },
       {
@@ -24,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MaintenanceRoutingModule { }
+export class CountryRoutingModule { }

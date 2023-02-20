@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MaintenanceRoutingModule } from './maintenance-routing.module';
+import { CountryRoutingModule } from './country-routing.module';
 import { AddComponent } from './add/add.component';
 import { DxButtonModule, DxFormModule, DxTextAreaModule, DxTextBoxModule, DxValidatorModule } from 'devextreme-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    MaintenanceRoutingModule,
+    CountryRoutingModule,
     FormsModule,
     DxTextBoxModule,
     ReactiveFormsModule,
@@ -23,4 +23,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DxButtonModule
   ]
 })
-export class MaintenanceModule { }
+export class CountryModule { }
