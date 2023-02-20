@@ -62,8 +62,6 @@ export class CountryComponent {
     if (event.rowType == 'data' && event.columnIndex === 4) {
       this.visible = !this.visible; // Popup visible
       this.rowIndex = event.rowIndex; // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
-    } else {
-      // Popup de formulario de edición (pendiente de implementación)
     }
   }
 

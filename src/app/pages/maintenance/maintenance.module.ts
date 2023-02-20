@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MaintenanceRoutingModule } from './maintenance-routing.module';
 import { AddComponent } from './add/add.component';
+import { DxButtonModule, DxFormModule, DxTextAreaModule, DxTextBoxModule, DxValidatorModule } from 'devextreme-angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,6 +14,13 @@ import { AddComponent } from './add/add.component';
   imports: [
     CommonModule,
     MaintenanceRoutingModule,
+    FormsModule,
+    DxTextBoxModule,
+    ReactiveFormsModule,
+    DxFormModule,
+    DxTextAreaModule,
+    DxValidatorModule,
+    DxButtonModule
   ]
 })
 export class MaintenanceModule { }

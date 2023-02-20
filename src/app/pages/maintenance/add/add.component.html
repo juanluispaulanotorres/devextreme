@@ -1,1 +1,45 @@
-<p>add works!</p>
+<div class="responsive-paddings">
+    <div class="content-block">
+        <h2>Add Country</h2>
+    </div>
+
+    <div>
+
+        <form [formGroup]="addForm">
+            <div class="fields">
+                <dx-text-box placeholder="Country name *" width="45%" name="countryName" [(ngModel)]="countryName"
+                    formControlName="countryName">
+                </dx-text-box>
+
+                <dx-text-box placeholder="Region *" width="45%" name="region" [(ngModel)]="region"
+                    formControlName="region">
+                </dx-text-box>
+            </div>
+
+            <div class="fields">
+                <dx-text-box placeholder="Official language *" width="45%" name="officialLanguage"
+                    [(ngModel)]="officialLanguage" formControlName="officialLanguage">
+                </dx-text-box>
+
+                <dx-text-box placeholder="Population *" width="45%" name="population" [(ngModel)]="population"
+                    formControlName="population">
+                </dx-text-box>
+            </div>
+
+            <div class="fields">
+                <dx-text-box placeholder="URL flag" width="45%" name="urlFlag" [(ngModel)]="urlFlag"
+                    formControlName="urlFlag">
+                </dx-text-box>
+
+                <dx-text-area placeholder="Notes" width="45%" name="notes" [(ngModel)]="notes" formControlName="notes">
+                </dx-text-area>
+            </div>
+
+            <div class="btnContainer">
+                <dx-button class="btnContainer--btnSubmit" text="Save" type="success" [useSubmitBehavior]="true" icon="save"
+                     (onClick)="submit(addForm)"></dx-button>
+                <dx-button text="Clear" (onClick)="clear()"></dx-button>
+            </div>
+        </form>
+    </div>
+</div>
