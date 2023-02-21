@@ -68,4 +68,11 @@ export class ListComponent {
   getPropVisible(event: any) {
     this.visible = event
   }
+
+  allowDeleting() {
+    // Petición DELETE a back
+
+    
+    //return !AppComponent.isChief(e.row.data.Position);
+  }
 }

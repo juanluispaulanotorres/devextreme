@@ -10,6 +10,8 @@
             <!-- Paginación -->
             <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
 
+            <dxo-editing mode="row" [allowDeleting]="allowDeleting"></dxo-editing>
+
             <!-- Columnas-->
             <dxi-column dataField="name.common" caption="Country name" width="15%"></dxi-column>
 
@@ -26,14 +28,17 @@
                 </div>
             </div>
 
+            <dxi-column caption="Delete" type="buttons">
+                <dxi-button name="delete" [visible]="true"></dxi-button>
+            </dxi-column>
         </dx-data-grid>
 
     </div>
 
 </div>
 
-<app-popup-gallery [visible]="visible" title="Flags" contentTemplate="content" [resizable]="false" [arrayImages]="arrayFlags"
-    [showCloseButton]="true" [rowIndex]="rowIndex" (emitVisible)="getPropVisible($event)">
+<app-popup-gallery [visible]="visible" title="Flags" contentTemplate="content" [resizable]="false"
+    [arrayImages]="arrayFlags" [showCloseButton]="true" [rowIndex]="rowIndex" (emitVisible)="getPropVisible($event)">
 </app-popup-gallery>
 
 <ng-template #noImage>
