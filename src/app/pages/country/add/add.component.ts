@@ -9,6 +9,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddComponent implements OnInit {
   addForm!: FormGroup;
 
+  numberPattern = /^([1-9]+\\d*)|[0]/;
+  urlPattern =
+    /(^[a-zñA-ZÑ]*:\/\/[a-zñA-ZÑ]*\.[a-zA-Z]*\/?[a-z0-9]*\/[a-z]*\.[a-z]{3})/;
+
   // countryName!: string;
   // region!: string;
   // officialLanguage!: string;
@@ -28,26 +32,12 @@ export class AddComponent implements OnInit {
         [
           Validators.required,
           Validators.min(0),
-          Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+          Validators.pattern(this.numberPattern),
         ],
       ],
-      urlFlag: [
-        '',
-        [
-          Validators.pattern(
-            /(^[a-zñA-ZÑ]*:\/\/[a-zñA-ZÑ]*\.[a-zA-Z]*\/?[a-z0-9]*\/[a-z]*\.[a-z]{3})/
-          ),
-        ],
-      ],
+      urlFlag: ['', [Validators.pattern(this.urlPattern)]],
       notes: ['', []],
     });
-  }
-
-  fieldIsValid(campo: string) {
-    return (
-      this.addForm.controls[campo].errors &&
-      this.addForm.controls[campo].touched
-    );
   }
 
   submit() {
