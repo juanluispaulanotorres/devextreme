@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import notify from 'devextreme/ui/notify';
+import { CountryService } from '../country.service';
+import { ICountry } from '../list/config';
 
 @Component({
   selector: 'app-add',
@@ -8,33 +14,25 @@ import notify from 'devextreme/ui/notify';
   styleUrls: ['./add.component.scss'],
 })
 export class AddComponent implements OnInit {
-  addForm!: FormGroup;
+  addFormCountry!: FormGroup;
 
-  numberPattern = /^([1-9]+\\d*)|[0]/;
+  numberPattern = /^\d+$/;
   urlPattern =
     /(^[a-zñA-ZÑ]*:\/\/[a-zñA-ZÑ]*\.[a-zA-Z]*\/?[a-z0-9]*\/[a-z]*\.[a-z]{3})/;
 
-  // countryName!: string;
-  // region!: string;
-  // officialLanguage!: string;
-  // population!: number;
-  // urlFlag!: string;
-  // notes!: string;
-
-  constructor(private builder: FormBuilder) {}
+  constructor(
+    private _builder: FormBuilder,
+    private _countryService: CountryService
+  ) {}
 
   ngOnInit() {
-    this.addForm = this.builder.group({
-      countryName: ['', [Validators.required]],
+    this.addFormCountry = this._builder.group({
+      name: ['', [Validators.required]],
       region: ['', [Validators.required]],
-      officialLanguage: ['', [Validators.required]],
+      language: ['', [Validators.required]],
       population: [
         '',
-        [
-          Validators.required,
-          Validators.min(0),
-          Validators.pattern(this.numberPattern),
-        ],
+        [Validators.required, Validators.pattern(this.numberPattern)],
       ],
       urlFlag: ['', [Validators.pattern(this.urlPattern)]],
       notes: ['', []],
@@ -42,25 +40,44 @@ export class AddComponent implements OnInit {
   }
 
   submit() {
-    if (this.addForm.invalid) {
+    if (this.addFormCountry.invalid) {
       return;
     } else {
       // ENVIAR DATOS A BACK
-      const dataForm = this.addForm.value;
+      const dataForm: ICountry = this.addFormCountry.value;
 
-      
-
-      notify({
-        message: 'You have submitted the form',
-        position: {
-          my: 'center top',
-          at: 'center top',
+      this._countryService.addCountry(dataForm).subscribe(
+        () => {
+          notify(
+            {
+              message: 'You have submitted the form',
+              position: {
+                my: 'center top',
+                at: 'center top',
+              },
+            },
+            'success',
+            3000
+          );
         },
-      }, 'success', 3000);
+        (error) => {
+          notify(
+            {
+              message: 'It has been a problem with the form',
+              position: {
+                my: 'center top',
+                at: 'center top',
+              },
+            },
+            'error',
+            3000
+          );
+        }
+      );
     }
   }
 
   clear() {
-    this.addForm.reset();
+    this.addFormCountry.reset();
   }
 }

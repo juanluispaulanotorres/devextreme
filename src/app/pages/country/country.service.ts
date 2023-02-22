@@ -4,16 +4,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CountryService {
-
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
 
   url: string = environment.url;
 
   // Alta
-  addCountry(formData: any) {
+  addCountry(formData: any): Observable<any> {
     return this._http.post(this.url, formData);
   }
 
@@ -24,11 +23,7 @@ export class CountryService {
 
   // Consulta
 
-
   // Modificación
 
-
   // Eliminación
-
-
 }

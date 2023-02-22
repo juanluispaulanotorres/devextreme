@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CountryService } from '../country.service';
+import { ICountry } from './config';
 
 interface IObjCarousel {
-  imageSrc: string;
+  imageSrc: string | undefined;
   text: string;
 }
 
@@ -11,26 +12,24 @@ interface IObjCarousel {
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  arrayCountries: any[] = [];
+  arrayCountries: ICountry[] = [];
+  arrayFlags: IObjCarousel[] = [];
+  rowIndex: number = 0;
+  visible: boolean = false;
 
   carrouselFlags: IObjCarousel = {
     imageSrc: '',
     text: '',
   };
 
-  arrayFlags: IObjCarousel[] = [];
-  rowIndex: number = 0;
-
-  visible: boolean = false;
-
   constructor(private countryService: CountryService) {
     this.countryService.listCountries().subscribe((countryList) => {
       this.arrayCountries = countryList;
 
-      this.arrayCountries.map((country) => {
+      this.arrayCountries.map((country: ICountry) => {
         // Info para el carrousel de imágenes
         this.carrouselFlags.text = country.name;
-        this.carrouselFlags.imageSrc = country.flags?.png;
+        this.carrouselFlags.imageSrc = country.urlFlag;
 
         this.arrayFlags.push({
           text: this.carrouselFlags.text,

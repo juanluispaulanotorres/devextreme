@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CountryRoutingModule } from './country-routing.module';
 import { AddComponent } from './add/add.component';
-import { DxButtonModule, DxFormModule, DxTextAreaModule, DxTextBoxModule, DxValidatorModule } from 'devextreme-angular';
+import { DxButtonModule, DxFormModule, DxNumberBoxModule, DxTextAreaModule, DxTextBoxModule, DxValidatorModule } from 'devextreme-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     DxFormModule,
     DxTextBoxModule,
+    DxNumberBoxModule,
     DxTextAreaModule,
     DxValidatorModule,
     DxButtonModule

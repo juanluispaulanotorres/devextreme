@@ -21,7 +21,7 @@
 
             <dxi-column dataField="population" caption="Population" alignment="left"></dxi-column>
 
-            <dxi-column dataField="flags.png" caption="Flag" cellTemplate="cellTemplate"></dxi-column>
+            <dxi-column dataField="urlFlag" caption="Flag" cellTemplate="cellTemplate"></dxi-column>
             <div *dxTemplate="let data of 'cellTemplate'">
                 <div *ngIf="data.text !== ''; else noImage">
                     <img [src]="data.text" width="100" height="60" class="flagImg">
