@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import notify from 'devextreme/ui/notify';
 
 @Component({
   selector: 'app-add',
@@ -43,6 +44,19 @@ export class AddComponent implements OnInit {
   submit() {
     if (this.addForm.invalid) {
       return;
+    } else {
+      // ENVIAR DATOS A BACK
+      const dataForm = this.addForm.value;
+
+      
+
+      notify({
+        message: 'You have submitted the form',
+        position: {
+          my: 'center top',
+          at: 'center top',
+        },
+      }, 'success', 3000);
     }
   }
 

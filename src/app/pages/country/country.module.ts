@@ -15,9 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CountryRoutingModule,
     FormsModule,
-    DxTextBoxModule,
     ReactiveFormsModule,
     DxFormModule,
+    DxTextBoxModule,
     DxTextAreaModule,
     DxValidatorModule,
     DxButtonModule

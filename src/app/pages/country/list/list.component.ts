@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import DataSource from 'devextreme/data/data_source';
-import ODataStore from 'devextreme/data/odata/store';
+import { CountryService } from '../country.service';
 
 interface IObjCarousel {
   imageSrc: string;
@@ -14,9 +13,6 @@ interface IObjCarousel {
 export class ListComponent {
   arrayCountries: any[] = [];
 
-  store: ODataStore;
-  dataSource: DataSource;
-
   carrouselFlags: IObjCarousel = {
     imageSrc: '',
     text: '',
@@ -27,26 +23,13 @@ export class ListComponent {
 
   visible: boolean = false;
 
-  constructor() {
-    this.store = new ODataStore({
-      url: 'https://restcountries.com/v3.1/all',
-    });
-
-    this.dataSource = new DataSource({
-      store: this.store,
-    });
-
-    this.store.load().then((data: any) => {
-      this.arrayCountries = data;
+  constructor(private countryService: CountryService) {
+    this.countryService.listCountries().subscribe((countryList) => {
+      this.arrayCountries = countryList;
 
       this.arrayCountries.map((country) => {
-        // Obtención del idioma del país
-        Object.values(country.languages).forEach((language) => {
-          country.language = language;
-        });
-
         // Info para el carrousel de imágenes
-        this.carrouselFlags.text = country.name.common;
+        this.carrouselFlags.text = country.name;
         this.carrouselFlags.imageSrc = country.flags?.png;
 
         this.arrayFlags.push({
@@ -66,13 +49,11 @@ export class ListComponent {
   }
 
   getPropVisible(event: any) {
-    this.visible = event
+    this.visible = event;
   }
 
   allowDeleting() {
     // Petición DELETE a back
-
-    
     //return !AppComponent.isChief(e.row.data.Position);
   }
 }
