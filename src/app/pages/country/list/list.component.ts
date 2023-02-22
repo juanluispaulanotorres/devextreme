@@ -23,7 +23,7 @@ export class ListComponent {
   };
 
   constructor(private countryService: CountryService) {
-    this.countryService.listCountries().subscribe((countryList) => {
+    this.countryService.getListCountries().subscribe((countryList) => {
       this.arrayCountries = countryList;
 
       this.arrayCountries.map((country: ICountry) => {

@@ -17,7 +17,7 @@ export class CountryService {
   }
 
   // Listado
-  listCountries(): Observable<any> {
+  getListCountries(): Observable<any> {
     return this._http.get(this.url);
   }
 
