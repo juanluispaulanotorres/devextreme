@@ -19,7 +19,11 @@
             </div>
         </dx-select-box>
 
-        
+        <dx-autocomplete placeholder="Search by country name" [dataSource]="arrayCountries" valueExpr="name" (onValueChanged)="updateCountryInfo($event)">
+            <div *dxTemplate="let item of 'item'">
+                <span>{{item.name}}</span>
+            </div>
+        </dx-autocomplete>
     </div>
 
     <div class="content" *ngIf="data">
