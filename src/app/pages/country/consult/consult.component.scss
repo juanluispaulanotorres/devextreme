@@ -1,0 +1,59 @@
+
+.selectContainer {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+
+    dx-select-box {
+        margin-right: 5%;
+    }
+
+    &--country {
+        display: grid;
+        grid-template-rows: 100%;
+        grid-template-columns: 20% 80%;
+
+        label {
+            margin-top: 4%;
+        }
+    }
+}
+
+.content {
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 5%;
+
+    &--data {
+        display: grid;
+        grid-template-rows: 25% 25% 25% 25%;
+
+        label {
+            font-size: x-large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        strong {
+            color: silver;
+            margin-left: 5%;
+        }
+    }
+
+    &--flag {
+        img {
+            border: 1px solid gray;
+            float: right;
+        }
+    }
+
+    &--description {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+}
+
+.selectecImgStyle {
+    margin-left: 5%;
+    padding: 5%;
+}

@@ -41,7 +41,7 @@ export class ListComponent {
 
   openPopup(event: any) {
     // Si se hace click sobre una de las banderas
-    if (event.rowType == 'data' && event.columnIndex === 4) {
+    if (event.rowType == 'data' && event.column.caption === 'Flag') {
       this.visible = !this.visible; // Popup visible
       this.rowIndex = event.rowIndex; // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
     }

@@ -35,7 +35,7 @@ export class AddComponent implements OnInit {
         [Validators.required, Validators.pattern(this.numberPattern)],
       ],
       urlFlag: ['', [Validators.pattern(this.urlPattern)]],
-      notes: ['', []],
+      description: ['', []],
     });
   }
 

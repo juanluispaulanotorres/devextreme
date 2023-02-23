@@ -22,6 +22,9 @@ export class CountryService {
   }
 
   // Consulta
+  getCountry(countryName: string): Observable<any> {
+    return this._http.get(`${this.url}?name=${countryName}`);
+  }
 
   // Modificación
 
