@@ -22,11 +22,14 @@ export class CountryService {
   }
 
   // Consulta
-  getCountry(countryName: string): Observable<any> {
-    return this._http.get(`${this.url}?name=${countryName}`);
-  }
+  // getCountry(countryName: string): Observable<any> {
+  //   return this._http.get(`${this.url}?name=${countryName}`);
+  // }
 
   // Modificación
 
   // Eliminación
+  deleteCountry(countryId: number): Observable<any> {
+    return this._http.delete(`${this.url}/${countryId}`);
+  }
 }

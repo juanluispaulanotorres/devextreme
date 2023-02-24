@@ -12,11 +12,6 @@ export const navigation = [
         text: 'Profile',
         icon: 'user',
         path: '/profile'
-      },
-      {
-        text: 'Tasks',
-        icon: 'verticalaligntop',
-        path: '/tasks'
       }
     ]
   },

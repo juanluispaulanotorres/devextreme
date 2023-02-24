@@ -1,0 +1,10 @@
+<dx-popup [(visible)]="visible" [title]="title" [contentTemplate]="contentTemplate" [resizeEnabled]="resizable"
+    [showCloseButton]="showCloseButton" [closeOnOutsideClick]="closeOnOutsideClick" (onHiding)="sendPropVisible()"
+    [width]="width" [height]="height">
+
+    <div class="popupContent" *dxTemplate="let data of contentTemplate">
+        <dx-button text="Yes" type="success" [useSubmitBehavior]="true" (onClick)="sendButton($event)"></dx-button>
+        <dx-button text="No" (onClick)="sendButton($event)"></dx-button>
+    </div>
+
+</dx-popup>

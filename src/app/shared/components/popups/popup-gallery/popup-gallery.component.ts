@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./popup-gallery.component.scss'],
 })
 export class PopupGalleryComponent {
-  
+
   @Input() visible!: boolean;
   @Input() title!: string;
   @Input() contentTemplate!: string;
@@ -20,7 +20,7 @@ export class PopupGalleryComponent {
 
   constructor() {}
 
-  sendPropVisible() {
+  sendCloseModal() {
     this.emitVisible.emit(false);
   }
 
