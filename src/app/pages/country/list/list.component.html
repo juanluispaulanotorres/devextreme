@@ -1,12 +1,12 @@
-<div class="responsive-paddings">
+<div id="listContainer" class="responsive-paddings">
     <div class="content-block">
         <h2>Countries Table</h2>
     </div>
 
-    <div>
+    <div id="containerTable">
         <!-- Tabla -->
-        <dx-data-grid #table id="gridContainer" [dataSource]="arrayCountries" (onCellClick)="openGalleryPopup($event)"
-            [selectedRowKeys]="[]" (onRowClick)="selectedRow($event)">
+        <dx-data-grid #table id="dataGrid" [dataSource]="arrayCountries" (onCellClick)="openGalleryPopup($event)"
+            [selectedRowKeys]="[]" (onRowClick)="selectedRow($event)" [noDataText]="(loadingPanelVisible) ? '' : 'No data' ">
 
             <!-- Paginación -->
             <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
@@ -41,6 +41,12 @@
 
 </div>
 
+<ng-template #noImage>
+    <label>No Image</label>
+</ng-template>
+
+<!-- Componentes genéricos -->
+
 <app-popup-confirmation [visible]="isPopupConfirmationVisible" title="Are you sure you want to delete this country?"
     contentTemplate="contentButtons" [resizable]="false" [showCloseButton]="true" (emitVisible)="closeModal($event)"
     (emitButton)="pressConfirmationModalButtons($event)" [width]="500" [height]="200">
@@ -50,6 +56,6 @@
     [arrayImages]="arrayFlags" [showCloseButton]="true" [rowIndex]="rowIndex" (emitVisible)="closeModal($event)">
 </app-popup-gallery>
 
-<ng-template #noImage>
-    <label>No Image</label>
-</ng-template>
+<app-load-panel [position]="{boundary: '#containerTable'}" [visible]="loadingPanelVisible" [showIndicator]="true"
+    [showPane]="true" [shading]="true" shadingColor="rgba(48, 87, 142, 0.3)" message="Loading...">
+</app-load-panel>

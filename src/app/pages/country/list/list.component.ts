@@ -12,7 +12,7 @@ interface IObjCarousel {
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit{
+export class ListComponent implements OnInit {
   @ViewChild(DxDataGridComponent, { static: false }) grid!: DxDataGridComponent;
 
   arrayCountries: ICountry[] = [];
@@ -21,6 +21,8 @@ export class ListComponent implements OnInit{
   rowIndex: number = 0;
   visible: boolean = false;
   isPopupConfirmationVisible: boolean = false;
+
+  loadingPanelVisible: boolean = false;
 
   carouselFlags: IObjCarousel = {
     imageSrc: '',
@@ -34,25 +36,27 @@ export class ListComponent implements OnInit{
   }
 
   getCountries() {
-
     this.arrayCountries = [];
     this.arrayFlags = [];
 
-    setTimeout(() => {
+    this.loadingPanelVisible = true;
 
+    setTimeout(() => {
       this.countryService.getListCountries().subscribe((countryList) => {
         this.arrayCountries = countryList;
-        
+
         this.arrayCountries.map((country: ICountry) => {
           // Info para el carrousel de imágenes
           this.carouselFlags.text = country.name;
           this.carouselFlags.imageSrc = country.urlFlag;
-          
+
           this.arrayFlags.push({
             text: this.carouselFlags.text,
             imageSrc: this.carouselFlags.imageSrc,
           });
         });
+
+        this.loadingPanelVisible = false;
       });
     }, 2000);
   }
