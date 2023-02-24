@@ -6,7 +6,7 @@ import {
 } from '@angular/forms';
 import notify from 'devextreme/ui/notify';
 import { CountryService } from '../country.service';
-import { ICountry } from '../list/config';
+import { ICountry } from '../config';
 
 @Component({
   selector: 'app-add',

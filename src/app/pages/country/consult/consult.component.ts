@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../country.service';
-import { ICountry } from '../list/config';
+import { ICountry } from '../config';
 
 @Component({
   selector: 'app-consult',

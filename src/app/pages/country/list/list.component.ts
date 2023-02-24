@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { DxDataGridComponent } from 'devextreme-angular';
 import { CountryService } from '../country.service';
-import { ICountry } from './config';
+import { ICountry } from '../config';
 
 interface IObjCarousel {
   imageSrc: string | undefined;
