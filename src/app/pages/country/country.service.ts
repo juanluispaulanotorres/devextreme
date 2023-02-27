@@ -27,6 +27,10 @@ export class CountryService {
   // }
 
   // Modificación
+  updateCountry(country: any): Observable<any> {
+    const countryId = country.id;
+    return this._http.put(`${this.url}/${countryId}`, country);
+  }
 
   // Eliminación
   deleteCountry(countryId: number): Observable<any> {

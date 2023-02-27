@@ -11,6 +11,7 @@ export class ConsultComponent implements OnInit {
   data!: boolean;
   arrayCountries: ICountry[] = [];
   country: ICountry = {
+    id: 0,
     name: '',
     region: '',
     language: '',

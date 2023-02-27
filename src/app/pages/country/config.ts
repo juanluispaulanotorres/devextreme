@@ -1,4 +1,5 @@
 export interface ICountry {
+    id: number,
     name: string,
     region: string,
     language: string

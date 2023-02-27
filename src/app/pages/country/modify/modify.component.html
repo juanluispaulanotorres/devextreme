@@ -11,7 +11,7 @@
             </div>
         </dx-autocomplete>
 
-        <div class="selectContainer--flag" *ngIf="data">
+        <div class="selectContainer--flag" *ngIf="data && country.urlFlag">
             <img [src]="country.urlFlag" width="90px" height="60px">
         </div>
     </div>
@@ -20,6 +20,9 @@
 
         <form [formGroup]="updatingFormCountry">
             <div class="fields">
+                <dx-number-box [value]="country.id" placeholder="Id *" name="id" formControlName="id" style="display: none;">
+                </dx-number-box>
+
                 <dx-text-box [value]="country.name" placeholder="Country name *" name="name" formControlName="name" width="45%">
                     <dx-validator>
                         <dxi-validation-rule type="required" message="This field is required">

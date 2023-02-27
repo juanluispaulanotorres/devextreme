@@ -16,6 +16,7 @@ export class ModifyComponent implements OnInit {
   data!: boolean;
   arrayCountries: ICountry[] = [];
   country: ICountry = {
+    id: 0,
     name: '',
     region: '',
     language: '',
@@ -36,6 +37,7 @@ export class ModifyComponent implements OnInit {
     this.getAllCountries();
 
     this.updatingFormCountry = this._builder.group({
+      id: [0],
       name: ['', [Validators.required]],
       region: ['', [Validators.required]],
       language: ['', [Validators.required]],
@@ -66,6 +68,7 @@ export class ModifyComponent implements OnInit {
     this.arrayCountries.forEach((country) => {
       if (countryName === country.name) {
         setTimeout(() => {
+          this.country.id = country.id;
           this.country.name = country.name;
           this.country.region = country.region;
           this.country.language = country.language;
@@ -86,7 +89,7 @@ export class ModifyComponent implements OnInit {
       // ENVIAR DATOS A BACK
       const dataForm: ICountry = this.updatingFormCountry.value;
 
-      this._countryService.addCountry(dataForm).subscribe(
+      this._countryService.updateCountry(dataForm).subscribe(
         () => {
           notify(
             {
