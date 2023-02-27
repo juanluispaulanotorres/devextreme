@@ -67,11 +67,11 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
   constructor(private elementRef: ElementRef) { }
 
   onItemClick(event: ItemClickEvent) {
-    if (event.itemData?.text === 'Examples' || event.itemData?.text === 'Maintenance') {
-      if (event.itemData?.icon === 'folder') {
-        event.itemData.icon = 'inactivefolder';
-      } else {
+    if (event.itemData) {
+      if (event.itemData.expanded) {
         event.itemData.icon = 'folder';
+      } else {
+        event.itemData.icon = 'inactivefolder';
       }
     }
     this.selectedItemChanged.emit(event);
