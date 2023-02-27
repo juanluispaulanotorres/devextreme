@@ -65,18 +65,23 @@ export class ListComponent implements OnInit {
     // Si se hace click sobre una de las banderas
     if (event.rowType == 'data' && event.column.caption === 'Flag') {
       this.visible = !this.visible; // Popup visible
-      this.rowIndex = event.rowIndex; // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
+
+      this.selectedRow(event);
     }
+  }
+
+  selectedRow(event: any) {
+    const pageIndex = this.grid.instance.pageIndex();
+    const pageSize = this.grid.instance.pageSize();
+
+    this.rowIndex = pageIndex * pageSize + event.rowIndex;  // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
+
+    this.countryId = event.data.id;
   }
 
   closeModal(event: any) {
     this.visible = event;
     this.isPopupConfirmationVisible = event;
-  }
-
-  selectedRow(event: any) {
-    this.rowIndex = event.rowIndex;
-    this.countryId = event.data.id;
   }
 
   removeCountry() {
