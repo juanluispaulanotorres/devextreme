@@ -67,7 +67,6 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
   constructor(private elementRef: ElementRef) { }
 
   onItemClick(event: ItemClickEvent) {
-    console.log(event)
     if (event.itemData && !event.itemData['path']) {
       if (event.itemData.expanded) {
         event.itemData.icon = 'folder';
