@@ -18,9 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConsultComponent } from './consult/consult.component';
 import { ListComponent } from './list/list.component';
 import { ComponentModule } from 'src/app/shared/components/components.module';
+import { ModifyComponent } from './modify/modify.component';
 
 @NgModule({
-  declarations: [AddComponent, ConsultComponent, ListComponent],
+  declarations: [AddComponent, ConsultComponent, ListComponent, ModifyComponent],
   imports: [
     CommonModule,
     ComponentModule,
