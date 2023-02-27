@@ -1,1 +1,22 @@
-<p>modify works!</p>
+<div id="listContainer" class="responsive-paddings">
+    <h2>Country Updating</h2>
+
+
+    <div class="selectContainer">
+        <label>Search for the country you want to update: </label>
+
+        <dx-autocomplete placeholder="Search by country name" [dataSource]="arrayCountries" valueExpr="name" (onValueChanged)="updateCountryInfo($event)">
+            <div *dxTemplate="let item of 'item'">
+                <span>{{item.name}}</span>
+            </div>
+        </dx-autocomplete>
+
+        <div class="selectContainer--flag" *ngIf="country.urlFlag">
+            <img [src]="country.urlFlag" width="90px" height="60px">
+        </div>
+    </div>
+
+    <div class="formContainer">
+        
+    </div>
+</div>
