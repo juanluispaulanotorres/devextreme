@@ -41,14 +41,16 @@ export class ConsultComponent implements OnInit {
 
     const country = event.value;
 
-    this.country.name = country.name;
-    this.country.region = country.region;
-    this.country.language = country.language;
-    this.country.population = country.population;
-    this.country.urlFlag = country.urlFlag;
-    this.country.description = country.description;
-
-    this.data = true;
+    if (country) {
+      this.country.name = country.name;
+      this.country.region = country.region;
+      this.country.language = country.language;
+      this.country.population = country.population;
+      this.country.urlFlag = country.urlFlag;
+      this.country.description = country.description;
+  
+      this.data = true;
+    }
   }
 
   updateCountryInfo(event: any) {
