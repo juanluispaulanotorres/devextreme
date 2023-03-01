@@ -51,6 +51,9 @@ export class ModifyComponent implements OnInit {
   }
 
   getAllCountries() {
+
+    this.arrayCountries = []
+
     this._countryService
       .getListCountries()
       .subscribe((countries: ICountry[]) => {
@@ -91,6 +94,9 @@ export class ModifyComponent implements OnInit {
 
       this._countryService.updateCountry(dataForm).subscribe(
         () => {
+
+          this.getAllCountries();
+
           notify(
             {
               message: 'You have submitted the form',
