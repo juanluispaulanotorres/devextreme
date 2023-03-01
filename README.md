@@ -2,26 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Módulos
 
-## Code scaffolding
+Este proyecto cuenta con 3 módulos principales:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- AppModule: Localizado en src/app/app.module.ts, es el módulo principal de la aplicación, responsable del arranque y de la combinación de otros módulos.
+- CountryModule: Localizado en src/app/pages/country/country.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'country'.
+- SharedModule: Localizado en src/app/shared/shared.module.ts. Conjunto de componentes genéricos que se reutilizarán de cara a la creación de nuevos módulos.
