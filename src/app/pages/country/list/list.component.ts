@@ -31,34 +31,41 @@ export class ListComponent implements OnInit {
 
   constructor(private countryService: CountryService) {}
 
-  ngOnInit(): void {
-    this.getCountries();
+  async ngOnInit() {
+    this.arrayCountries = await this.getCountries();
   }
 
-  getCountries() {
+  getCountries(): Promise<ICountry[]> {
     this.arrayCountries = [];
     this.arrayFlags = [];
 
-    this.loadingPanelVisible = true;
+    return new Promise((resolve) => {
+      this.loadingPanelVisible = true;
 
-    setTimeout(() => {
-      this.countryService.getListCountries().subscribe((countryList) => {
-        this.arrayCountries = countryList;
-
-        this.arrayCountries.map((country: ICountry) => {
-          // Info para el carrousel de imágenes
-          this.carouselFlags.text = country.name;
-          this.carouselFlags.imageSrc = country.urlFlag;
-
-          this.arrayFlags.push({
-            text: this.carouselFlags.text,
-            imageSrc: this.carouselFlags.imageSrc,
-          });
+      setTimeout(() => {
+        this.countryService.getListCountries().subscribe((countryList) => {
+          resolve(countryList);
+          this.arrayFlags = this.carouselImages(countryList);
         });
 
         this.loadingPanelVisible = false;
+      }, 2000);
+    });
+  }
+
+  carouselImages(arrayCountries: ICountry[]): IObjCarousel[] {
+    arrayCountries.map((country: ICountry) => {
+      // Info para el carrousel de imágenes
+      this.carouselFlags.text = country.name;
+      this.carouselFlags.imageSrc = country.urlFlag;
+
+      this.arrayFlags.push({
+        text: this.carouselFlags.text,
+        imageSrc: this.carouselFlags.imageSrc,
       });
-    }, 2000);
+    });
+
+    return this.arrayFlags;
   }
 
   openGalleryPopup(event: any) {
@@ -74,7 +81,7 @@ export class ListComponent implements OnInit {
     const pageIndex = this.grid.instance.pageIndex();
     const pageSize = this.grid.instance.pageSize();
 
-    this.rowIndex = pageIndex * pageSize + event.rowIndex;  // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
+    this.rowIndex = pageIndex * pageSize + event.rowIndex; // Obtención del índice de la fila seleccionada para abrir el popup mostrando la bandera actual
 
     this.countryId = event.data.id;
   }
@@ -84,7 +91,7 @@ export class ListComponent implements OnInit {
     this.isPopupConfirmationVisible = event;
   }
 
-  removeCountry() {
+  async removeCountry() {
     this.isPopupConfirmationVisible = !this.isPopupConfirmationVisible;
 
     if (this.countryId) {
@@ -96,7 +103,7 @@ export class ListComponent implements OnInit {
     } else {
       return;
     }
-    this.getCountries();  // Se vuelve a realizar una petición a backend para obtener los países y actualizar el array sin recargar la página
+    this.arrayCountries = await this.getCountries(); // Se vuelve a realizar una petición a backend para obtener los países y actualizar el array sin recargar la página
   }
 
   openModal() {
