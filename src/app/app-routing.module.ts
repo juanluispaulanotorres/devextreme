@@ -11,7 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DxFormModule } from 'devextreme-angular';
 import { CommonModule } from '@angular/common';
-import { ComponentModule } from './shared/components/components.module';
+import { SharedModule } from './shared/shared.module';
 
 const routes: Routes = [
   {
@@ -63,7 +63,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { useHash: true }),
     DxFormModule,
     CommonModule,
-    ComponentModule,
+    SharedModule,
   ],
 })
 export class AppRoutingModule {}

@@ -17,14 +17,14 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConsultComponent } from './consult/consult.component';
 import { ListComponent } from './list/list.component';
-import { ComponentModule } from 'src/app/shared/components/components.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { ModifyComponent } from './modify/modify.component';
 
 @NgModule({
   declarations: [AddComponent, ConsultComponent, ListComponent, ModifyComponent],
   imports: [
     CommonModule,
-    ComponentModule,
+    SharedModule,
     CountryRoutingModule,
     FormsModule,
     ReactiveFormsModule,
