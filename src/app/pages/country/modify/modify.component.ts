@@ -33,8 +33,8 @@ export class ModifyComponent implements OnInit {
 
   constructor(private _countryService: CountryService, private _builder: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.getAllCountries();
+  async ngOnInit() {
+    this.arrayCountries = await this.getAllCountries();
 
     this.updatingFormCountry = this._builder.group({
       id: [0],
@@ -50,17 +50,17 @@ export class ModifyComponent implements OnInit {
     });
   }
 
-  getAllCountries() {
+  getAllCountries(): Promise<ICountry[]> {
 
     this.arrayCountries = []
 
-    this._countryService
+    return new Promise((resolve) => {
+      this._countryService
       .getListCountries()
       .subscribe((countries: ICountry[]) => {
-        countries.forEach((country: ICountry) => {
-          this.arrayCountries.push(country);
-        });
+        resolve(countries);
       });
+    })
   }
 
   updateCountryInfo(event: any) {
