@@ -22,18 +22,18 @@ export class ConsultComponent implements OnInit {
 
   constructor(private countryService: CountryService) {}
 
-  ngOnInit(): void {
-    this.getAllCountries();
+  async ngOnInit() {
+    this.arrayCountries = await this.getAllCountries();
   }
 
-  getAllCountries() {
-    this.countryService
+  getAllCountries(): Promise<ICountry[]> {
+    return new Promise((resolve) => {
+      this.countryService
       .getListCountries()
       .subscribe((countries: ICountry[]) => {
-        countries.forEach((country: ICountry) => {
-          this.arrayCountries.push(country);
-        });
+        resolve(countries)
       });
+    })
   }
 
   countrySelected(event: any) {
