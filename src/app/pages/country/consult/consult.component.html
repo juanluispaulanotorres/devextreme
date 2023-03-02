@@ -7,12 +7,12 @@
 
             <div *dxTemplate="let country of 'selectedCountry'">
                 <div class="selectContainer--country">
-                    <img [src]="country && country.urlFlag" height="50" ngClass="selectecImgStyle"/>
+                    <img [src]="country && country.urlFlag" height="40" ngClass="selectecImgStyle"/>
                     <dx-text-box [value]="country && country.name" [readOnly]="true"></dx-text-box>
                 </div>
                 <div *dxTemplate="let country of 'item'">
                     <div class="selectContainer--country">
-                        <img [src]="country.urlFlag" height="50" ngClass="selectecImgStyle"/>
+                        <img [src]="country.urlFlag" height="40" ngClass="selectecImgStyle"/>
                         <label>{{ country && country.name }}</label>
                     </div>
                 </div>
