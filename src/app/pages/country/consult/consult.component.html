@@ -3,7 +3,7 @@
 
     <div class="selectContainer">
         <dx-select-box [dataSource]="arrayCountries" [showClearButton]="true"
-            fieldTemplate="selectedCountry" (onValueChanged)="countrySelected($event)">
+            fieldTemplate="selectedCountry" (onValueChanged)="countrySelected($event)" *ngIf="!loadingData">
 
             <div *dxTemplate="let country of 'selectedCountry'">
                 <div class="selectContainer--country">
@@ -18,6 +18,8 @@
                 </div>
             </div>
         </dx-select-box>
+
+        <dx-load-indicator [visible]="loadingData"></dx-load-indicator>
 
         <dx-autocomplete placeholder="Search by country name" [dataSource]="arrayCountries" valueExpr="name" (onValueChanged)="updateCountryInfo($event)">
             <div *dxTemplate="let item of 'item'">

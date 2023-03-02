@@ -9,6 +9,7 @@ import { ICountry } from '../config';
 })
 export class ConsultComponent implements OnInit {
   data!: boolean;
+  loadingData: boolean = true;
   arrayCountries: ICountry[] = [];
   country: ICountry = {
     id: 0,
@@ -27,13 +28,18 @@ export class ConsultComponent implements OnInit {
   }
 
   getAllCountries(): Promise<ICountry[]> {
+    this.loadingData = true;
+
     return new Promise((resolve) => {
-      this.countryService
-      .getListCountries()
-      .subscribe((countries: ICountry[]) => {
-        resolve(countries)
-      });
-    })
+      setTimeout(() => {
+        this.countryService
+          .getListCountries()
+          .subscribe((countries: ICountry[]) => {
+            resolve(countries);
+          });
+        this.loadingData = false;
+      }, 2000);
+    });
   }
 
   countrySelected(event: any) {
@@ -48,7 +54,7 @@ export class ConsultComponent implements OnInit {
       this.country.population = country.population;
       this.country.urlFlag = country.urlFlag;
       this.country.description = country.description;
-  
+
       this.data = true;
     }
   }

@@ -7,6 +7,7 @@ import {
   DxAutocompleteModule,
   DxButtonModule,
   DxDataGridModule,
+  DxLoadIndicatorModule,
   DxNumberBoxModule,
   DxSelectBoxModule,
   DxSpeedDialActionModule,
@@ -37,6 +38,7 @@ import { ModifyComponent } from './modify/modify.component';
     DxValidatorModule,
     DxButtonModule,
     DxSpeedDialActionModule,
+    DxLoadIndicatorModule
   ],
 })
 export class CountryModule {}
