@@ -36,7 +36,7 @@ export const navigation = [
       },
       {
         text: 'Update',
-        icon: 'refresh',
+        icon: 'rename',
         path: '/country/modify'
       }
     ]

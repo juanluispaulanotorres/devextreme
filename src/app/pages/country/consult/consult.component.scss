@@ -1,9 +1,4 @@
-
 .selectContainer {
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: 50% 50%;
-
     dx-select-box {
         margin-right: 5%;
     }
@@ -11,10 +6,10 @@
     &--country {
         display: grid;
         grid-template-rows: 100%;
-        grid-template-columns: 20% 80%;
+        grid-template-columns: 10% 90%;
 
         label {
-            margin-top: 4%;
+            margin-top: 2%;
         }
     }
 }

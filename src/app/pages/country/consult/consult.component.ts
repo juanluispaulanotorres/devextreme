@@ -58,23 +58,4 @@ export class ConsultComponent implements OnInit {
       this.data = true;
     }
   }
-
-  updateCountryInfo(event: any) {
-    this.data = false;
-
-    let countryName = event.value;
-
-    this.arrayCountries.forEach((country) => {
-      if (countryName === country.name) {
-        this.country.name = country.name;
-        this.country.region = country.region;
-        this.country.language = country.language;
-        this.country.population = country.population;
-        this.country.urlFlag = country.urlFlag;
-        this.country.description = country.description;
-
-        this.data = true;
-      }
-    });
-  }
 }
