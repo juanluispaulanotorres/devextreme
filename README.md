@@ -22,6 +22,18 @@ Para dicha gestión, se ha realizado un mantenimiento completo (alta, listado, c
 componentes, haciendo uso de la herramienta DevExtreme.
 
 
+## Estructura
+Al crear el proyecto de Angular junto con DevExtreme, se define una estructura por defecto.
+
+    src / app
+            |
+            layouts: Directorio en el que se guardan los layouts, por defecto, los tipos de disposiciones de los menús.
+            pages: Aquí se almacenan los componentes de angular junto con sus archivos .html y hojas de estilo.
+            shared: Conjunto de recursos que se reutilizarán en la aplicación.
+                  |
+                  components: Componentes genéricos.
+                  services: Servicios a nivel global.
+
 ## Módulos
 
 Este proyecto cuenta con 3 módulos principales:
