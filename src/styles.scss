@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+/* This file is currently used to change generic components styles */
+
+.dx-loadpanel-content {
+  max-width: 200px !important;
+  max-height: 100px !important;
+  border-radius: 5% !important;
+}
+
+.dx-loadpanel-content::after {
+  content: "Loading ...";
+}
+
+/* dx-darkmoon.css styles - dx-select-box arrow icon*/
+.dx-dropdowneditor-icon {
+  background-color: transparent !important;
+}

@@ -15,6 +15,8 @@ export class LoadPanelComponent {
   @Input() shading!: boolean;
   @Input() hideOnOutsideClick!: boolean;
   @Input() message!: string;
+  @Input() width!: number;
+  @Input() height!: number;
 
   constructor() {}
 

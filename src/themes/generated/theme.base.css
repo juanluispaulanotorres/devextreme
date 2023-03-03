@@ -9774,14 +9774,24 @@
   -webkit-animation: none;
   animation: none;
 }
-.dx-loadindicator-icon {
+
+/* spinner - dx-common.css theme */
+/* .dx-loadindicator-icon {
   direction: ltr;
   position: absolute;
   height: 100%;
   width: 100%;
   -webkit-animation: 5332ms cubic-bezier(.4,0,.2,1) infinite both dx-icon-rotation;
   animation: 5332ms cubic-bezier(.4,0,.2,1) infinite both dx-icon-rotation;
+} */
+
+/* spinner - dx-moondark.css theme */
+.dx-loadindicator-icon {
+  direction: ltr;
+  position: absolute;
+  animation: 5332ms cubic-bezier(.4,0,.2,1) infinite both dx-icon-rotation;
 }
+
 .dx-loadindicator-segment {
   height: 100%;
   width: 100%;
