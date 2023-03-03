@@ -3,6 +3,15 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
 
+## Instalación
+
+Para instalar un proyecto Angular junto con DevExtreme sólo tenemos que realizar los siguientes pasos:
+
+    1º) Creamos un directorio para almacenar en él el futuro proyecto.
+    2º) Desde la terminal, ejecutar el siguiente comando: npx -p devextreme-cli devextreme new angular-app app-name
+    3º) npm i (Necesario para utilizar el gestor de paquetes de node)
+    4º) Desde el proyecto que hemos creado, ejecutar lo siguiente: npm run start
+
 
 ## Aplicación
 
@@ -11,7 +20,6 @@ Esta aplicación está orientada al aprendizaje de DevExtreme (v22.2.4), una lib
 El proyecto trata sobre la gestión de países y usuarios. 
 Para dicha gestión, se ha realizado un mantenimiento completo (alta, listado, consulta, modificación y eliminación) y este mantenimiento se lleva a cabo mediante un conjunto de
 componentes, haciendo uso de la herramienta DevExtreme.
-
 
 
 ## Módulos
