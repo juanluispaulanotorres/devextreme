@@ -3,7 +3,7 @@
 
     <div class="selectContainer">
         <dx-select-box [dataSource]="arrayCountries" [showClearButton]="true" 
-            fieldTemplate="selectedCountry" (onValueChanged)="countrySelected($event)" *ngIf="!loadingData">
+            fieldTemplate="selectedCountry" (onValueChanged)="countrySelected($event)" [label]="(data) ? '' : 'Select country'"  *ngIf="!loadingData">
 
             <div *dxTemplate="let country of 'selectedCountry'">
                 <div class="selectContainer--country">
