@@ -36,8 +36,11 @@ Al crear el proyecto de Angular junto con DevExtreme, se define una estructura p
 
 ## Módulos
 
-Este proyecto cuenta con 3 módulos principales:
+Este proyecto cuenta con 2 módulos principales:
 
-- AppModule: Localizado en src/app/app.module.ts, es el módulo principal de la aplicación, responsable del arranque y de la combinación de otros módulos.
-- CountryModule: Localizado en src/app/pages/country/country.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'country'.
-- SharedModule: Localizado en src/app/shared/shared.module.ts. Conjunto de componentes genéricos que se reutilizarán de cara a la creación de nuevos módulos.
+    - AppModule: Localizado en src/app/app.module.ts, es el módulo principal de la aplicación, responsable del arranque y de la combinación de otros módulos.
+    - SharedModule: Localizado en src/app/shared/shared.module.ts. Conjunto de componentes genéricos que se reutilizarán de cara a la creación de nuevos módulos.
+
+A parte de los anteriores, habrá otros módulos que formen parte de otras secciones de la aplicación. En este caso, se darán a conocer los siguientes:
+
+    - CountryModule: Localizado en src/app/pages/country/country.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'country'.
