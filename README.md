@@ -52,7 +52,7 @@ A parte de los anteriores, habrá otros módulos que formen parte de otras secci
 
 A continuación se explican los componentes utilizados en el módulo 'country', todos ellos compuestos por tres archivos con las siguientes extensiones: ts, html y scss.
 
-- AddCountryComponent: 
+- AddComponent:
 Es el componente donde se implementa el código que se encarga de registrar en la aplicación un país nuevo.
 Consta de un formulario con seis campos y dos botones.
 
@@ -73,3 +73,31 @@ Consta de un formulario con seis campos y dos botones.
     Al estar implementado con un componente genérico, ambos botones se encuentran dentro de la iteración de un bucle en la vista.
     Al hacer click sobre los dos botones se ejecuta el mismo método, en este caso 'clickOnButton()', al que se le pasa cada botón como parámetro.
     Una vez identificado cada botón, se ejecutará el método submit(), en caso de que el botón pulsado sea 'Save' o clear(), en caso de que se trate de 'Clear'.
+
+- ListComponent:
+En este componente se implementa el código encargado de visualizar el listado de los países almacenados en la base de datos.
+Los datos se muestran en una tabla con una cabecera de cinco campos: country name, region, language, population y flag.
+
+    Mediante una petición a backend, se obtienen un conjunto de países y se almacenan en un array de objetos (Country).
+    Para la tabla, se utiliza la etiqueta <dx-data-grid> de DevExtreme y el array se vincula a ella mediante la propiedad [dataSource].
+
+    Para cada una de las columnas se utilizan las etiquetas <dxi-column> y se relacionan con las propiedades de los objetos a través de la propiedad [dataField].
+    Con la propiedad caption establecemos el título de cada columna.
+
+    Para visualizar una bandera como una imagen se debe añadir la etiqueta <img> dentro de un <dxi-column>. Para llevar a cabo esto, es necesario hacer uso de la propiedad
+    celltemplate, mediante la cual se puede relacionar el valor de dicha propiedad con un contenedor creado dentro de <dxi-column>.
+
+    Al realizar esto, se podrá incluir una imagen en la columna que corresponda.
+
+    Con las etiquetas <dxo-pager>, <dxo-editing> y <dxo-selection> se puede seleccionar, paginar y editar la tabla.
+
+    Al hacer click sobre una de las celdas donde se encuentran las banderas, se ejecutará el método 'openGalleryPopup($event)' que es el encargado de abrir el popup genérico que muestra el nombre y la bandera del país seleccionado.
+
+    En este componente también se lleva a cabo la petición para eliminar la información de un país de la base de datos.
+    Para la eliminación, se realizan varios pasos:
+        1º) Se hace click sobre un registro de la tabla.
+        2º) Al hacer esto, se obtiene el id del país seleccionado y se muestra en pantalla el componente de DevExtreme <dx-speed-dial-action> (botón en pantalla).
+        3º) Al hacer click sobre <dx-speed-dial-action>, aparecerá un modal (componente genérico).
+        4º) Cuando se confirma la eliminación, se hará una petición a backend y se eliminará el país que previemente fue seleccionado.
+
+
