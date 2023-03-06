@@ -44,3 +44,32 @@ Este proyecto cuenta con 2 módulos principales:
 A parte de los anteriores, habrá otros módulos que formen parte de otras secciones de la aplicación. En este caso, se darán a conocer los siguientes:
 
     - CountryModule: Localizado en src/app/pages/country/country.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'country'.
+
+
+## Componentes usados
+
+### Country
+
+A continuación se explican los componentes utilizados en el módulo 'country', todos ellos compuestos por tres archivos con las siguientes extensiones: ts, html y scss.
+
+- AddCountryComponent: 
+Es el componente donde se implementa el código que se encarga de registrar en la aplicación un país nuevo.
+Consta de un formulario con seis campos y dos botones.
+
+    Para el formulario se ha hecho uso de la etiqueta <form> a la que, mediante el uso de la propiedad [formGroup], se ha vinculado al FormGroup 'addFormCountry' creado en el
+    archivo add.component.ts.
+
+    Dicho FormGroup contiene seis FormControls: name, region, language, population, urlFlag y description, con sus respectivas validaciones.
+
+    Para cada uno de los campos, en el html, se han usado las etiquetas <dx-text-box>, <dx-number-box> y <dx-text-area>.
+    Para los botones, se ha utilizado el componente genérico <app-button> (se explicará su composición en la sección "Componentes Genéricos").
+
+    Para integrar las validaciones a la vista, se ha hecho uso de <dx-validator> y <dxi-validation-rule> y mediante la propiedad 'type', se ha especificado el tipo de validación.
+
+    Respecto a los botones, en este caso son dos: 
+    - Save: Botón que estará deshabilitado hasta que el formulario sea válido. Se encargará de enviar la información a backend para almacenarla en la base de datos.
+    - Clear: Este botón se encargá simplemente de limpiar los campos del formulario.
+
+    Al estar implementado con un componente genérico, ambos botones se encuentran dentro de la iteración de un bucle en la vista.
+    Al hacer click sobre los dos botones se ejecuta el mismo método, en este caso 'clickOnButton()', al que se le pasa cada botón como parámetro.
+    Una vez identificado cada botón, se ejecutará el método submit(), en caso de que el botón pulsado sea 'Save' o clear(), en caso de que se trate de 'Clear'.
