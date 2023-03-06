@@ -70,9 +70,10 @@
             </div>
 
             <div class="fields--btnContainer">
-                <dx-button class="fields--btnContainer--btnSubmit" text="Save" type="success" [useSubmitBehavior]="true"
-                    icon="save" (onClick)="submit()" [disabled]="!updatingFormCountry.valid"></dx-button>
-                <dx-button text="Clear" (onClick)="clear()"></dx-button>
+                <div class="fields--btnContainer--btnSubmit" *ngFor="let button of arrayButtons">
+                    <app-button [text]="button.text" [type]="button.type" [useSubmitBehavior]="button.useSubmitBehavior" [icon]="button.icon"
+                    (onClickEvent)="clickOnButton(button)" [disabled]="btnDisabled(button)"></app-button>
+                </div>
             </div>
         </form>
     </div>
