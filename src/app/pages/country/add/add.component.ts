@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import notify from 'devextreme/ui/notify';
 import { CountryService } from '../country.service';
 import { ICountry } from '../config';
+import { CountryComponentsConfig } from '../country-components.config';
 
 @Component({
   selector: 'app-add',
@@ -19,6 +16,10 @@ export class AddComponent implements OnInit {
   numberPattern = /^\d+$/;
   urlPattern =
     /(^[a-zñA-ZÑ]*:\/\/[a-zñA-ZÑ]*\.[a-zA-Z]*\/?[a-z0-9]*\/[a-z]*\.[a-z]{3})/;
+
+  // Buttons
+  countryComponent = new CountryComponentsConfig();
+  arrayButtons = this.countryComponent.buttons;
 
   constructor(
     private _builder: FormBuilder,
@@ -37,6 +38,19 @@ export class AddComponent implements OnInit {
       urlFlag: ['', [Validators.pattern(this.urlPattern)]],
       description: ['', []],
     });
+  }
+
+  btnDisabled(button: any) {
+    if (button.id === 'submit' && !this.addFormCountry.valid) return true;
+    else return false;
+  }
+
+  clickOnButton(button: any) {
+    if (button.id === 'submit') {
+      this.submit();
+    } else {
+      this.clear();
+    }
   }
 
   submit() {

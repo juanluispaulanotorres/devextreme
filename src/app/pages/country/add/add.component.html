@@ -55,7 +55,10 @@
             </div>
 
             <div class="fields--btnContainer">
-                <dx-button text="Clear" (onClick)="clear()"></dx-button>
+                <div class="fields--btnContainer--btnSubmit" *ngFor="let button of arrayButtons">
+                    <app-button [text]="button.text" [type]="button.type" [useSubmitBehavior]="button.useSubmitBehavior" [icon]="button.icon"
+                    (onClickEvent)="clickOnButton(button)" [disabled]="btnDisabled(button)"></app-button>
+                </div>
             </div>
         </form>
     </div>
