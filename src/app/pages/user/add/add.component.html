@@ -5,7 +5,7 @@
 
     <div>
 
-        <form class="form" [formGroup]="addFormUser">
+        <form [formGroup]="addFormUser">
             <div class="fields">
                 <dx-text-box placeholder="First name *" name="firstName" formControlName="firstName" width="45%">
                     <dx-validator>
@@ -37,23 +37,14 @@
                     </dx-validator>
                 </dx-text-box>
 
-                <dx-text-box placeholder="Picture" name="picture" formControlName="picture" width="45%">
-                    <dx-validator>
-                        <dxi-validation-rule type="pattern" [pattern]="urlPattern"
-                            message="This field has to be a valid url. Ej: https://flagcdn.com/w320/pl.png">
-                        </dxi-validation-rule>
-                    </dx-validator>
-                </dx-text-box>
+                <dx-file-uploader selectButtonText="Select photo" name="picture" formControlName="picture" accept="image/*" uploadMode="useForm" uploadUrl="." uploadMethod="POST" width="45%"></dx-file-uploader>
 
-                <dx-text-box placeholder="Birth date" name="birthDate" formControlName="birthDate" width="45%">
-                    
-                </dx-text-box>
+                <dx-date-box placeholder="Birth date" name="birthDate"formControlName="birthDate" width="45%"></dx-date-box>
+
             </div>
 
             <div class="fields">
-                <dx-text-box placeholder="Hire date" name="hireDate" formControlName="hireDate" width="45%">
-                    
-                </dx-text-box>
+                <dx-date-box placeholder="Hire date" name="hireDate" formControlName="hireDate" width="45%"></dx-date-box>
 
                 <dx-text-box placeholder="Address" name="address" formControlName="address" width="45%">
                     

@@ -4,6 +4,8 @@ import {
   DxAutocompleteModule,
   DxButtonModule,
   DxDataGridModule,
+  DxDateBoxModule,
+  DxFileUploaderModule,
   DxGalleryModule,
   DxLoadIndicatorModule,
   DxLoadPanelModule,
@@ -51,6 +53,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DxButtonModule,
     DxSpeedDialActionModule,
     DxLoadIndicatorModule,
+    DxFileUploaderModule,
+    DxDateBoxModule
   ],
   bootstrap: [AppComponent],
 })
