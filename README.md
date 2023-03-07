@@ -43,6 +43,7 @@ Este proyecto cuenta con 2 módulos principales:
 
 A parte de los anteriores, habrá otros módulos que formen parte de otras secciones de la aplicación. En este caso, se darán a conocer los siguientes:
 
+    - UserModule: Localizado en src/app/pages/user/user.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'user'.
     - CountryModule: Localizado en src/app/pages/country/country.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'country'.
 
 
