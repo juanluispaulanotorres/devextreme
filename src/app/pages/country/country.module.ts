@@ -7,13 +7,11 @@ import { ConsultComponent } from './consult/consult.component';
 import { ListComponent } from './list/list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ModifyComponent } from './modify/modify.component';
-import { PagesModule } from '../pages.module';
 
 @NgModule({
   declarations: [AddComponent, ConsultComponent, ListComponent, ModifyComponent],
   imports: [
     CommonModule,
-    PagesModule,
     SharedModule,
     CountryRoutingModule
   ],

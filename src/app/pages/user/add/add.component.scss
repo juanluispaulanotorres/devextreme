@@ -8,4 +8,15 @@
     justify-content: space-evenly;
     margin-bottom: 2%;
     column-gap: 2%;
+
+    &--btnContainer {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 5%;
+        margin-top: 5%;
+
+        &--btnSubmit {
+            margin-right: 1%;
+        }
+    }
 }

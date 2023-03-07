@@ -6,7 +6,6 @@ import { AddComponent } from './add/add.component';
 import { ListComponent } from './list/list.component';
 import { ConsultComponent } from './consult/consult.component';
 import { ModifyComponent } from './modify/modify.component';
-import { PagesModule } from '../pages.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -19,7 +18,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    PagesModule,
     SharedModule,
     UserRoutingModule
   ]
