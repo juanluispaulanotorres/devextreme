@@ -43,8 +43,9 @@ Este proyecto cuenta con 2 módulos principales:
 
 A parte de los anteriores, habrá otros módulos que formen parte de otras secciones de la aplicación. En este caso, se darán a conocer los siguientes:
 
-    - UserModule: Localizado en src/app/pages/user/user.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'user'.
-    - CountryModule: Localizado en src/app/pages/country/country.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'country'.
+    - PagesModule: Localizado en src/app/pages/pages.module.ts. Aquí se encuentran los componentes que tienen en común los módulos siguientes:
+        - UserModule: Localizado en src/app/pages/user/user.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'user'.
+        - CountryModule: Localizado en src/app/pages/country/country.module.ts. Gestiona los componentes de DevExtreme incluidos en el módulo 'country'.
 
 
 ## Componentes usados
@@ -112,4 +113,3 @@ Los datos se muestran justo debajo del componente <dx-select-box>, que se utiliz
 
     Una vez que se selecciona un país, su información será mostrada en un contenedor (<div>). Para esto, se almacena en el objeto 'country' sus datos, haciendo uso del método countrySelected($event), que se ejecutará al lanzarse el evento (onValueChanged) del componente <dx-select-box>.
 
-    
