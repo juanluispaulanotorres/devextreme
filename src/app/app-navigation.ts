@@ -5,13 +5,33 @@ export const navigation = [
     icon: 'home'
   },
   {
-    text: 'Examples',
+    text: 'Profile',
+    icon: 'user',
+    path: '/profile'
+  },
+  {
+    text: 'User',
     icon: 'folder',
     items: [
       {
-        text: 'Profile',
-        icon: 'user',
-        path: '/profile'
+        text: 'Add user',
+        icon: 'plus',
+        path: '/user/add'
+      },
+      {
+        text: 'List of users',
+        icon: 'group',
+        path: '/user/list'
+      },
+      {
+        text: 'Consult',
+        icon: 'find',
+        path: '/user/consult'
+      },
+      {
+        text: 'Update',
+        icon: 'rename',
+        path: '/user/modify'
       }
     ]
   },
