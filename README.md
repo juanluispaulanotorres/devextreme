@@ -102,3 +102,14 @@ Los datos se muestran en una tabla con una cabecera de cinco campos: country nam
         4º) Cuando se confirma la eliminación, se hará una petición a backend y se eliminará el país que previemente fue seleccionado.
 
 
+- ConsultComponent:
+En este componente se implementa el código encargado de visualizar los datos del país seleccionado que está almacenado en la base de datos.
+Los datos se muestran justo debajo del componente <dx-select-box>, que se utiliza para indicar el país cuyos datos van a ser visualizados.
+
+    Para mostrar los países, se usa el array 'arrayCountries', en el que se almacena cada país obtenido mediante una petición a backend. Este array es vinculado a la propiedad [dataSource] del mismo componente.
+
+    Para mostrar tanto la bandera como el nombre de cada país, se utiliza la propiedad 'fieldTemplate', con la que se pueden almacenar otras etiquetas y contenedores html (misma función que cellTemplate, explicada en la línea 89).
+
+    Una vez que se selecciona un país, su información será mostrada en un contenedor (<div>). Para esto, se almacena en el objeto 'country' sus datos, haciendo uso del método countrySelected($event), que se ejecutará al lanzarse el evento (onValueChanged) del componente <dx-select-box>.
+
+    
