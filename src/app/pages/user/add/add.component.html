@@ -1,1 +1,74 @@
-<p>add works!</p>
+<div class="responsive-paddings">
+    <div class="content-block">
+        <h2>Add User</h2>
+    </div>
+
+    <div>
+
+        <form class="form" [formGroup]="addFormUser">
+            <div class="fields">
+                <dx-text-box placeholder="First name *" name="firstName" formControlName="firstName" width="45%">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="This field is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+
+                <dx-text-box placeholder="Last name *" name="lastName" formControlName="lastName" width="45%">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="This field is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+
+                <dx-text-box placeholder="Prefix *" name="prefix" formControlName="prefix" width="45%">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="This field is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
+
+            <div class="fields">
+                <dx-text-box placeholder="Position *" name="position" formControlName="position" width="45%">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="This field is required">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+
+                <dx-text-box placeholder="Picture" name="picture" formControlName="picture" width="45%">
+                    <dx-validator>
+                        <dxi-validation-rule type="pattern" [pattern]="urlPattern"
+                            message="This field has to be a valid url. Ej: https://flagcdn.com/w320/pl.png">
+                        </dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+
+                <dx-text-box placeholder="Birth date" name="birthDate" formControlName="birthDate" width="45%">
+                    
+                </dx-text-box>
+            </div>
+
+            <div class="fields">
+                <dx-text-box placeholder="Hire date" name="hireDate" formControlName="hireDate" width="45%">
+                    
+                </dx-text-box>
+
+                <dx-text-box placeholder="Address" name="address" formControlName="address" width="45%">
+                    
+                </dx-text-box>
+
+                <dx-text-area placeholder="Notes" name="notes" formControlName="notes" width="45%">
+                </dx-text-area>
+            </div>
+
+            <!-- <div class="fields--btnContainer">
+                <div class="fields--btnContainer--btnSubmit" *ngFor="let button of arrayButtons">
+                    <app-button [text]="button.text" [type]="button.type" [useSubmitBehavior]="button.useSubmitBehavior" [icon]="button.icon"
+                    (onClickEvent)="clickOnButton(button)" [disabled]="btnDisabled(button)"></app-button>
+                </div>
+            </div> -->
+        </form>
+    </div>
+</div>

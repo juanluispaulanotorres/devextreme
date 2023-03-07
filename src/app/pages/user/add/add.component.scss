@@ -1,0 +1,11 @@
+
+.form {
+    display: grid;
+}
+
+.fields {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2%;
+    column-gap: 2%;
+}
